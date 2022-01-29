@@ -1,3 +1,2 @@
-### UITableViewDiffableDataSource Example
+### A Resizable View to Test Layouts
 
-![UITableViewDiffableDataSource](assets/example.gif)
