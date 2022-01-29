@@ -1,6 +1,6 @@
 import UIKit
 
-final class ViewController: UIViewController {
+final class ResizableViewViewController: UIViewController {
     
     private let widthSlider = UISlider()
     private let heightSlider = UISlider()

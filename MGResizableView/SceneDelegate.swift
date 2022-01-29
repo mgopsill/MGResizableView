@@ -6,7 +6,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         guard let windowScene = (scene as? UIWindowScene) else { return }
         let window = UIWindow(windowScene: windowScene)
         self.window = window
-        self.window?.rootViewController = ViewController()
+        self.window?.rootViewController = ResizableViewViewController()
         self.window?.makeKeyAndVisible()
     }
 }
