@@ -7,19 +7,27 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4D025D4427ADBFA3009E24A3 /* UIView+Layout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D025D4327ADBFA3009E24A3 /* UIView+Layout.swift */; };
+		4D025D4627ADBFCD009E24A3 /* DeviceSizeListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D025D4527ADBFCD009E24A3 /* DeviceSizeListViewController.swift */; };
+		4D025D4827ADBFEB009E24A3 /* ShakeableWindow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D025D4727ADBFEB009E24A3 /* ShakeableWindow.swift */; };
+		4D025D4A27ADC039009E24A3 /* Device.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D025D4927ADC039009E24A3 /* Device.swift */; };
 		4DBDAF5027A4571400F355F9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DBDAF4F27A4571400F355F9 /* AppDelegate.swift */; };
 		4DBDAF5227A4571400F355F9 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DBDAF5127A4571400F355F9 /* SceneDelegate.swift */; };
-		4DBDAF5427A4571500F355F9 /* ResizableViewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DBDAF5327A4571400F355F9 /* ResizableViewViewController.swift */; };
+		4DBDAF5427A4571500F355F9 /* TestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DBDAF5327A4571400F355F9 /* TestViewController.swift */; };
 		4DBDAF5927A4571600F355F9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4DBDAF5827A4571600F355F9 /* Assets.xcassets */; };
 		4DBDAF6427A50E8400F355F9 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 4DBDAF6327A50E8400F355F9 /* README.md */; };
 		4DBDAF6627A50E9E00F355F9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4DBDAF6527A50E9E00F355F9 /* LaunchScreen.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		4D025D4327ADBFA3009E24A3 /* UIView+Layout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Layout.swift"; sourceTree = "<group>"; };
+		4D025D4527ADBFCD009E24A3 /* DeviceSizeListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceSizeListViewController.swift; sourceTree = "<group>"; };
+		4D025D4727ADBFEB009E24A3 /* ShakeableWindow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShakeableWindow.swift; sourceTree = "<group>"; };
+		4D025D4927ADC039009E24A3 /* Device.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Device.swift; sourceTree = "<group>"; };
 		4DBDAF4C27A4571400F355F9 /* MGResizableView.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MGResizableView.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4DBDAF4F27A4571400F355F9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4DBDAF5127A4571400F355F9 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		4DBDAF5327A4571400F355F9 /* ResizableViewViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResizableViewViewController.swift; sourceTree = "<group>"; };
+		4DBDAF5327A4571400F355F9 /* TestViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestViewController.swift; sourceTree = "<group>"; };
 		4DBDAF5827A4571600F355F9 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		4DBDAF5D27A4571600F355F9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4DBDAF6327A50E8400F355F9 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
@@ -57,12 +65,16 @@
 			isa = PBXGroup;
 			children = (
 				4DBDAF4F27A4571400F355F9 /* AppDelegate.swift */,
-				4DBDAF5127A4571400F355F9 /* SceneDelegate.swift */,
-				4DBDAF5327A4571400F355F9 /* ResizableViewViewController.swift */,
 				4DBDAF5827A4571600F355F9 /* Assets.xcassets */,
-				4DBDAF6527A50E9E00F355F9 /* LaunchScreen.storyboard */,
+				4D025D4527ADBFCD009E24A3 /* DeviceSizeListViewController.swift */,
+				4D025D4927ADC039009E24A3 /* Device.swift */,
 				4DBDAF5D27A4571600F355F9 /* Info.plist */,
+				4DBDAF6527A50E9E00F355F9 /* LaunchScreen.storyboard */,
 				4DBDAF6327A50E8400F355F9 /* README.md */,
+				4DBDAF5327A4571400F355F9 /* TestViewController.swift */,
+				4DBDAF5127A4571400F355F9 /* SceneDelegate.swift */,
+				4D025D4727ADBFEB009E24A3 /* ShakeableWindow.swift */,
+				4D025D4327ADBFA3009E24A3 /* UIView+Layout.swift */,
 			);
 			path = MGResizableView;
 			sourceTree = "<group>";
@@ -138,8 +150,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4DBDAF5427A4571500F355F9 /* ResizableViewViewController.swift in Sources */,
+				4D025D4627ADBFCD009E24A3 /* DeviceSizeListViewController.swift in Sources */,
+				4D025D4427ADBFA3009E24A3 /* UIView+Layout.swift in Sources */,
+				4D025D4A27ADC039009E24A3 /* Device.swift in Sources */,
+				4DBDAF5427A4571500F355F9 /* TestViewController.swift in Sources */,
 				4DBDAF5027A4571400F355F9 /* AppDelegate.swift in Sources */,
+				4D025D4827ADBFEB009E24A3 /* ShakeableWindow.swift in Sources */,
 				4DBDAF5227A4571400F355F9 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
