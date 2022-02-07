@@ -6,15 +6,14 @@ final class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         guard let windowScene = (scene as? UIWindowScene) else { return }
         let window = ShakeableWindow(windowScene: windowScene)
         self.window = window
-        let tab = UITabBarController()
-        tab.viewControllers = [TestViewController()]
-        tab.tabBar.backgroundColor = .black
-        self.window?.rootViewController = tab
+        self.window?.rootViewController = TestViewController()
         self.window?.makeKeyAndVisible()
     }
 }
 
 /* Known Issues:
 - not taking into account safe area layout guide
-  e.g. notch or time, date, wifi bar on iPhone 5 / 8 
+  e.g. notch or time, date, wifi bar on iPhone 5 / 8
+- after resetting following a resize, changing the frame does not work
+- possible tab controller and nav controller issues
 */

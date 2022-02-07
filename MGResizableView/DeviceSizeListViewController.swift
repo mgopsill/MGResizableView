@@ -1,6 +1,12 @@
 import UIKit
 
 final class DeviceSizeListViewController: UITableViewController {
+    enum Section: Int, CaseIterable {
+        case devices
+        case resizable
+        case reset
+    }
+    
     private let deviceSizes = Device.allCases
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -12,30 +18,58 @@ final class DeviceSizeListViewController: UITableViewController {
 extension DeviceSizeListViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: UITableViewCell.identifier, for: indexPath)
-        cell.textLabel?.text = indexPath.section == 0 ? deviceSizes[indexPath.row].title : "Reset"
+        guard let section = Section.init(rawValue: indexPath.section) else { return cell }
+        switch section {
+        case .devices:
+            cell.textLabel?.text = deviceSizes[indexPath.row].title
+        case .resizable:
+            cell.textLabel?.text = "Resize"
+        case .reset:
+            cell.textLabel?.text = "Reset"
+        }
         return cell
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        section == 0 ? deviceSizes.count : 1
+        guard let section = Section.init(rawValue: section) else { return 0 }
+        switch section {
+        case .devices: return deviceSizes.count
+        case .resizable, .reset: return 1
+        }
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        if indexPath.section == 0 {
+        guard let section = Section.init(rawValue: indexPath.section),
+              let presentingViewController = presentingViewController else { return }
+        switch section {
+        case .devices:
             let size = deviceSizes[indexPath.row].size
-            presentingViewController?.view.frame = try! makeNewFrame(for: size)
-        } else {
-            presentingViewController?.view.frame = UIScreen.main.bounds
+            presentingViewController.view.frame = try! makeNewFrame(for: size)
+        case .resizable:
+            guard let window = UIApplication.shared.keyWindow else { return }
+            let viewController = ResizableViewController(viewControllerToResize: presentingViewController)
+            window.rootViewController = viewController
+        case .reset:
+            if let viewC = presentingViewController as? ResizableViewController {
+                guard let window = UIApplication.shared.keyWindow else { return }
+                window.rootViewController = viewC.removeChild()
+            }
+            presentingViewController.view.frame = UIScreen.main.bounds
         }
         dismiss(animated: true, completion: nil)
     }
     
     override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        section == 0 ? "Select Device Size" : "Reset"
+        guard let section = Section.init(rawValue: section) else { return nil }
+        switch section {
+        case .devices: return "Select Device Size"
+        case .resizable: return "Resize"
+        case .reset: return "Reset"
+        }
     }
     
     override func numberOfSections(in tableView: UITableView) -> Int {
-        2
+        Section.allCases.count
     }
     
     private func makeNewFrame(for size: CGSize) throws -> CGRect {
