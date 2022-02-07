@@ -46,15 +46,10 @@ extension DeviceSizeListViewController {
             let size = deviceSizes[indexPath.row].size
             presentingViewController.view.frame = try! makeNewFrame(for: size)
         case .resizable:
-            guard let window = UIApplication.shared.keyWindow else { return }
-            let viewController = ResizableViewController(viewControllerToResize: presentingViewController)
-            window.rootViewController = viewController
+            presentingViewController.view.addResizer()
         case .reset:
-            if let viewC = presentingViewController as? ResizableViewController {
-                guard let window = UIApplication.shared.keyWindow else { return }
-                window.rootViewController = viewC.removeChild()
-            }
             presentingViewController.view.frame = UIScreen.main.bounds
+            presentingViewController.view.removeResizer()
         }
         dismiss(animated: true, completion: nil)
     }

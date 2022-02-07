@@ -1,24 +1,16 @@
 import UIKit
 
-final class SliderResizerView: UIView {
+final class ResizerView: UIView {
     private let viewToResize: UIView
-    private lazy var viewToResizeHeight = viewToResize.heightAnchor.constraint(equalTo: heightAnchor)
-    private lazy var viewToResizeWidth = viewToResize.widthAnchor.constraint(equalTo: widthAnchor)
-
     private let slider = UISlider()
 
     init(viewToResize: UIView) {
         self.viewToResize = viewToResize
         super.init(frame: .zero)
-        
-        viewToResize.clipsToBounds = true
-        viewToResize.place(on: self).pin(.centerX, .centerY)
-        viewToResizeHeight.isActive = true
-        viewToResizeWidth.isActive = true
-        
+                
         slider.backgroundColor = UIColor(white: 0, alpha: 0.1)
         slider.layer.cornerRadius = 10
-        slider.place(on: self).pin(.bottom(padding: 30), .horizontalEdges(padding: 20))
+        slider.place(on: self).pin(.allEdges)
         slider.addTarget(self, action: #selector(didChangeHeight), for: .valueChanged)
         slider.minimumValue = 50
         slider.maximumValue = Float(UIScreen.currentHeight)
@@ -28,9 +20,23 @@ final class SliderResizerView: UIView {
     required init?(coder: NSCoder) { fatalError("init(coder:) has not been implemented") }
     
     @objc private func didChangeHeight() {
-        let difference = Float(UIScreen.currentHeight) - Float(slider.value)
-        viewToResizeHeight.constant = -CGFloat(difference)
-        viewToResizeWidth.constant = -CGFloat(difference * UIScreen.currentAspectRatio)
+        let height = CGFloat(slider.value)
+        let width = height * CGFloat(UIScreen.currentAspectRatio)
+        let newX = (UIScreen.currentWidth - width) / 2
+        let newY = (UIScreen.currentHeight - height) / 2
+        viewToResize.frame = CGRect(origin: CGPoint(x: newX, y: newY), size: CGSize(width: width, height: height))
+    }
+}
+
+extension UIView {
+    func addResizer() {
+        let slider = ResizerView(viewToResize: self)
+        addSubview(slider)
+        slider.place(on: self).pin(.centerX, .centerY, .fixedWidth(200))
+    }
+    
+    func removeResizer() {
+        subviews.compactMap { $0 as? ResizerView }.forEach { $0.removeFromSuperview() }
     }
 }
 
