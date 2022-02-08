@@ -25,14 +25,14 @@ enum Device: CaseIterable {
     
     var title: String {
         switch self {
-        case .iPhone5:          return "iPhone5"
-        case .iPhone8:          return "iPhone8"
-        case .iPhone12Mini:     return "iPhone12Mini"
-        case .iPhone12Pro:      return "iPhone12Pro"
-        case .iPhone12ProMax:   return "iPhone12ProMax"
-        case .iPadAir:          return "iPadAir"
-        case .iPadPro11Inch:    return "iPadPro11Inch"
-        case .iPadPro12_9Inch:  return "iPadPro12_9Inch"
+        case .iPhone5:          return "iPhone 5"
+        case .iPhone8:          return "iPhone 8"
+        case .iPhone12Mini:     return "iPhone 12 Mini"
+        case .iPhone12Pro:      return "iPhone 12 Pro"
+        case .iPhone12ProMax:   return "iPhone 12 Pro Max"
+        case .iPadAir:          return "iPad Air"
+        case .iPadPro11Inch:    return "iPad Pro (11 inch)"
+        case .iPadPro12_9Inch:  return "iPad Pro (12.9 inch)"
         }
     }
 }

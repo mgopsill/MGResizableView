@@ -14,6 +14,4 @@ final class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 /* Known Issues:
 - not taking into account safe area layout guide
   e.g. notch or time, date, wifi bar on iPhone 5 / 8
-- after resetting following a resize, changing the frame does not work
-- possible tab controller and nav controller issues
 */

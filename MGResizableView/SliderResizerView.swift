@@ -24,7 +24,8 @@ final class ResizerView: UIView {
         let width = height * CGFloat(UIScreen.currentAspectRatio)
         let newX = (UIScreen.currentWidth - width) / 2
         let newY = (UIScreen.currentHeight - height) / 2
-        viewToResize.frame = CGRect(origin: CGPoint(x: newX, y: newY), size: CGSize(width: width, height: height))
+        viewToResize.frame = CGRect(origin: CGPoint(x: newX, y: newY),
+                                    size: CGSize(width: width, height: height))
     }
 }
 
