@@ -44,7 +44,7 @@ extension DeviceSizeListViewController {
         switch section {
         case .devices:
             let size = deviceSizes[indexPath.row].size
-            presentingViewController.view.frame = try! makeNewFrame(for: size)
+            presentingViewController.view.frame = makeNewFrame(for: size)
         case .resizable:
             presentingViewController.view.addResizer()
         case .reset:
@@ -67,7 +67,7 @@ extension DeviceSizeListViewController {
         Section.allCases.count
     }
     
-    private func makeNewFrame(for size: CGSize) throws -> CGRect {
+    private func makeNewFrame(for size: CGSize) -> CGRect {
         let fullScreen = UIScreen.main.bounds
         let x = makeOffset(current: fullScreen.width, new: size.width)
         let y = makeOffset(current: fullScreen.height, new: size.height)
